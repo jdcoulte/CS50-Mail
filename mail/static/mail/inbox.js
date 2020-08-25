@@ -69,10 +69,11 @@ function load_mailbox(mailbox) {
       document.querySelector("#emails-view").appendChild(emaildiv);  
     }
     else {
-      for(let i = 0, len = emails.length; i < len; i++) {
-        // format each email and append it to the #emails-view node
-        display_email(emails[i]);
-      }
+      emails.forEach(email => display_email(email));
+      // for(let i = 0, len = emails.length; i < len; i++) {
+      //   // format each email and append it to the #emails-view node
+      //   display_email(emails[i]);
+      // }
     }    
 });
 
@@ -226,7 +227,7 @@ function archive(id) {
         archived: true
     })
   })
-  load_mailbox('inbox');
+  window.location.href = "/";
 }
 
 function restore(id) {
@@ -237,7 +238,7 @@ function restore(id) {
         archived: false
     })
   })
-  load_mailbox('inbox');
+  window.location.href = "/";
 }
 
 function reply(recipient, subject, timestamp, body) {
